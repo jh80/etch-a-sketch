@@ -13,14 +13,21 @@
         </div>
 
         <script>
+            // Variables
             const gridDimension = 16;
+            const gridContainerWidth = 500;
+            const gridBlockWidth = (gridContainerWidth/gridDimension);
+
+            // Get gridContainer reference
             const gridContainer = document.querySelector("#gridContainer");
 
-
-
-            for (let i = 0; i < gridDimension; i++) {
+          
+            
+            // Create gridDimension number of gridBlocks
+            for (let i = 0; i < (gridDimension*gridDimension); i++) {
                 const gridBlock = document.createElement("div");
                 gridBlock.classList.add("gridBlock");
+                gridBlock.style.width = `${gridBlockWidth}px`;
                 gridContainer.appendChild(gridBlock);
             }
         </script>
