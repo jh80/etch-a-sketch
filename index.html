@@ -17,22 +17,31 @@
             const gridContainer = document.querySelector("#gridContainer");
 
             // Variables
-            const gridDimension = 16;
+            const gridDimension = 100;
             const gridContainerCompStyles = window.getComputedStyle(gridContainer);
             const gridContainerWidthRaw = gridContainerCompStyles.getPropertyValue("width");
             // include here a search for 'px' in gridContainerWidthRaw (this info need to be px for the code to work)
             const gridContainerWidth = parseInt(gridContainerWidthRaw);
             const gridBlockWidth = (gridContainerWidth/gridDimension);
-            
-            //console.log(gridContainerWidthRaw);
-            //console.log(gridContainerWidth);
 
             // Create gridDimension number of gridBlocks
             for (let i = 0; i < (gridDimension*gridDimension); i++) {
                 const gridBlock = document.createElement("div");
                 gridBlock.classList.add("gridBlock");
                 gridBlock.style.width = `${gridBlockWidth}px`;
+                gridBlock.addEventListener("mouseover", changeTargetBackground);
                 gridContainer.appendChild(gridBlock);
+            }
+            /* TAKE OUT WHEN EVENT LISTENER ^ works
+            // Assign event listeners to gridBlocks
+            const gridBlockList = document.querySelectorAll(".gridBlock");
+            for (gridBlock in gridBlockList) {
+                gridBlock.addEventListener("mouseover", changeTargetBackground);
+            }
+            */
+            // changeTargetBackground function
+            function changeTargetBackground (e) {
+                e.target.classList.add("hoverColor");
             }
         </script>
     </body>

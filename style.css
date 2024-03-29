@@ -21,6 +21,6 @@ html {
     outline: 1px solid black;
 }
 */
-.gridBlock:hover {
+.hoverColor {
     background-color: black;
 }
