@@ -30,9 +30,7 @@
             
             // Button event
             const gridDimensionBtn = document.querySelector("#gridDimensionBtn");
-            gridDimensionBtn.addEventListener("click", ()=> {
-                prompt("What size would you like? (0 - 100)");
-            });
+            gridDimensionBtn.addEventListener("click", changeGridDimension);
 
         // EVENT LISTENER FUNCTIONS
             // changeTargetBackground function
@@ -43,6 +41,7 @@
             // changeGridDimension function
             function changeGridDimension() {
                 const gridDimension = prompt("What size would you like? (0 - 100)");
+                clearElement(gridContainer);
                 createGrid(gridDimension, gridContainerWidth);
             }
 
