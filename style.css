@@ -12,9 +12,11 @@ html {
 
 body {
     text-align: center;
+    background-color: antiquewhite;
 }
 
 #gridContainer {
+    background-color: white;
     border: 2px solid black;
     height: 500px; 
     width: 500px;
