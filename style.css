@@ -16,7 +16,11 @@ html {
     display: flex;
     flex-wrap: wrap;
 }
-
+/*
 .gridBlock {
     outline: 1px solid black;
+}
+*/
+.gridBlock:hover {
+    background-color: black;
 }
