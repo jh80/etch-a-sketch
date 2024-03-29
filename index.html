@@ -8,11 +8,13 @@
     </head>
     <body>
         <h1>My page</h1>
-        <div id="gridContainer">
-        </div>
+
         <button id="gridDimensionBtn">Change the size of the pen</button>
         <p>(bigger number means smaller pen point)</p>
 
+        <div id="gridContainer">
+        </div>
+        
         <script>
         // Get gridContainer reference
             const gridContainer = document.querySelector("#gridContainer");
@@ -25,9 +27,7 @@
             const gridContainerWidth = parseInt(gridContainerWidthRaw);
 
             createGrid(gridDimension, gridContainerWidth);
-            console.log("gridbuilt");
-            
-            
+
             // Button event
             const gridDimensionBtn = document.querySelector("#gridDimensionBtn");
             gridDimensionBtn.addEventListener("click", changeGridDimension);
@@ -47,6 +47,10 @@
 
         // createGrid function
         function createGrid (gridDimension, gridContainerWidth) {
+            if (gridDimension > 100 || gridDimension < 0) {
+                alert("Grid dimension must be greater than zero and less than 100")
+                gridDimension = 100;
+            }
             const gridBlockWidth = (gridContainerWidth/gridDimension);
 
             for (let i = 0; i < (gridDimension**2); i++) {
