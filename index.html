@@ -23,21 +23,13 @@
             const gridContainerWidthRaw = gridContainerCompStyles.getPropertyValue("width");
             // include here a search for 'px' in gridContainerWidthRaw (this info need to be px for the code to work)
             const gridContainerWidth = parseInt(gridContainerWidthRaw);
-            const gridBlockWidth = (gridContainerWidth/gridDimension);
 
-            // Create gridDimension number of gridBlocks
-            for (let i = 0; i < (gridDimension**2); i++) {
-                const gridBlock = document.createElement("div");
-                gridBlock.classList.add("gridBlock");
-                gridBlock.style.width = `${gridBlockWidth}px`;
-                gridBlock.addEventListener("mouseover", changeTargetBackground);
-                gridContainer.appendChild(gridBlock);
-            }
+            createGrid(gridDimension, gridContainerWidth);
 
             // Button event
             const gridDimensionBtn = document.querySelector("#gridDimensionBtn");
-            gridDimensionBtn.addEventListener("click", () => {
-                prompt("What size would you like? (0 - 100)")
+            gridDimensionBtn.addEventListener("click", ()=> {
+                prompt("What size would you like? (0 - 100)");
             });
 
         // EVENT LISTENER FUNCTIONS
@@ -45,6 +37,25 @@
             function changeTargetBackground (e) {
                 e.target.classList.add("hoverColor");
             }
+
+            // changeGridDimension function
+            function changeGridDimension() {
+                const gridDimension = prompt("What size would you like? (0 - 100)");
+                createGrid(gridDimension, gridContainerWidth);
+            }
+
+        // createGrid function
+        function createGrid (gridDimension, gridContainerWidth) {
+            const gridBlockWidth = (gridContainerWidth/gridDimension);
+
+            for (let i = 0; i < (gridDimension**2); i++) {
+                const gridBlock = document.createElement("div");
+                gridBlock.classList.add("gridBlock");
+                gridBlock.style.width = `${gridBlockWidth}px`;
+                gridBlock.addEventListener("mouseover", changeTargetBackground);
+                gridContainer.appendChild(gridBlock);
+            }
+        }
         </script>
     </body>
 </html>
