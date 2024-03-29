@@ -13,16 +13,20 @@
         </div>
 
         <script>
-            // Variables
-            const gridDimension = 16;
-            const gridContainerWidth = 500;
-            const gridBlockWidth = (gridContainerWidth/gridDimension);
-
-            // Get gridContainer reference
+        // Get gridContainer reference
             const gridContainer = document.querySelector("#gridContainer");
 
-          
+            // Variables
+            const gridDimension = 16;
+            const gridContainerCompStyles = window.getComputedStyle(gridContainer);
+            const gridContainerWidthRaw = gridContainerCompStyles.getPropertyValue("width");
+            // include here a search for 'px' in gridContainerWidthRaw (this info need to be px for the code to work)
+            const gridContainerWidth = parseInt(gridContainerWidthRaw);
+            const gridBlockWidth = (gridContainerWidth/gridDimension);
             
+            //console.log(gridContainerWidthRaw);
+            //console.log(gridContainerWidth);
+
             // Create gridDimension number of gridBlocks
             for (let i = 0; i < (gridDimension*gridDimension); i++) {
                 const gridBlock = document.createElement("div");
