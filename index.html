@@ -25,7 +25,9 @@
             const gridContainerWidth = parseInt(gridContainerWidthRaw);
 
             createGrid(gridDimension, gridContainerWidth);
-
+            console.log("gridbuilt");
+            
+            
             // Button event
             const gridDimensionBtn = document.querySelector("#gridDimensionBtn");
             gridDimensionBtn.addEventListener("click", ()=> {
@@ -54,6 +56,15 @@
                 gridBlock.style.width = `${gridBlockWidth}px`;
                 gridBlock.addEventListener("mouseover", changeTargetBackground);
                 gridContainer.appendChild(gridBlock);
+            }
+        }
+
+        // clearElement function
+        function clearElement(element) {
+            let firstChild = element.firstElementChild;
+            while (firstChild) {
+                element.removeChild(element.lastElementChild);
+                firstChild = element.firstElementChild;
             }
         }
         </script>
