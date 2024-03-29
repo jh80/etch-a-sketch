@@ -9,12 +9,18 @@ html {
     box-sizing: inherit;
 }
 */
+
+body {
+    text-align: center;
+}
+
 #gridContainer {
     border: 2px solid black;
     height: 500px; 
     width: 500px;
     display: flex;
     flex-wrap: wrap;
+    margin: auto;
 }
 /*
 .gridBlock {
